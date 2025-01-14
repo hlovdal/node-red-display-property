@@ -2,7 +2,6 @@ module.exports = function (RED) {
 	function DisplayPropertyNode(config) {
 		RED.nodes.createNode(this, config);
 		var node = this;
-		var name 	 = config.name;
 		var property = config.property;
 		var showDate = config.showDate;
 		var showTime = config.showTime;
@@ -10,8 +9,6 @@ module.exports = function (RED) {
 
 			// function start ---------------------------
 
-			//const showDate = true;
-			//const showTime = false;
 			var status = 'property does not exist';
 			var date = new Date();
 			var dateTime = '';
@@ -39,7 +36,6 @@ module.exports = function (RED) {
 				property = "msg.payload";
 			}
 			if (msg.hasOwnProperty('property')) {
-				msg.test0 = "msg.property angegeben";
 				if (msg.property !== '' || msg.property === undefined || msg.property === null) {
 					property = msg.property
 				}
