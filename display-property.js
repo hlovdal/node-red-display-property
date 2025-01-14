@@ -25,6 +25,25 @@ function getTimeString(date) {
 	return hour + ':' + minute + ':' + second;
 }
 
+/**
+ * @param {boolean} showDate
+ * @param {boolean} showTime
+ * @returns {string}
+ */
+function getDateAndTimeString(showDate, showTime) {
+	const date = new Date();
+	let dateTime = '';
+	if (showDate) {
+		dateTime = getDateString(date);
+	}
+	if (showTime) {
+		const prefix = dateTime != '' ? ' ' : '';
+		dateTime += prefix + getTimeString(date);
+	}
+	if (dateTime != '') { dateTime += ': '; };
+	return dateTime;
+}
+
 module.exports = function (RED) {
 	function DisplayPropertyNode(config) {
 		RED.nodes.createNode(this, config);
@@ -37,17 +56,6 @@ module.exports = function (RED) {
 			// function start ---------------------------
 
 			let status = 'property does not exist';
-			const date = new Date();
-			let dateTime = '';
-			if (showDate == 1) {
-				dateTime = getDateString(date);
-			}
-			if (showTime == 1) {
-				const prefix = dateTime != '' ? ' ' : '';
-				dateTime += prefix + getTimeString(date);
-			}
-			if (dateTime != '') { dateTime += ': ' };
-
 			if (property === '' || property === undefined || property === null) {
 				property = "msg.payload";
 			}
@@ -59,6 +67,8 @@ module.exports = function (RED) {
 			if (msg.hasOwnProperty(property.slice(property.indexOf(".") + 1))) {
 				status = RED.util.getMessageProperty(msg, property);
 			}
+
+			const dateTime = getDateAndTimeString(showDate, showTime);
 			node.status({ shape: "dot", fill: "grey", text: dateTime + JSON.stringify(status) })
 			node.send(msg);
 
