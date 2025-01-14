@@ -44,7 +44,18 @@ function getDateAndTimeString(showDate, showTime) {
 	return dateTime;
 }
 
+/**
+ * @typedef {Object} Config
+ * @property {string} name
+ * @property {string} property
+ * @property {boolean} showDate
+ * @property {boolean} showTime
+ */
+
 module.exports = function (RED) {
+	/**
+	 * @param {Config} config
+	 */
 	function DisplayPropertyNode(config) {
 		RED.nodes.createNode(this, config);
 		const node = this;
