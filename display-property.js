@@ -1,30 +1,30 @@
 module.exports = function (RED) {
 	function DisplayPropertyNode(config) {
 		RED.nodes.createNode(this, config);
-		var node = this;
-		var property = config.property;
-		var showDate = config.showDate;
-		var showTime = config.showTime;
+		const node = this;
+		let property = config.property;
+		const showDate = config.showDate;
+		const showTime = config.showTime;
 		node.on("input", function (msg) {
 
 			// function start ---------------------------
 
-			var status = 'property does not exist';
-			var date = new Date();
-			var dateTime = '';
+			let status = 'property does not exist';
+			const date = new Date();
+			let dateTime = '';
 			if (showDate == 1) {
-				var day = date.getDate();
-				var month = date.getMonth() + 1; // month as a number 0-11, so add 1
-				var year = date.getFullYear();
+				let day = date.getDate();
+				let month = date.getMonth() + 1; // month as a number 0-11, so add 1
+				let year = date.getFullYear();
 				if (day < 10) { day = '0' + day };
 				if (month < 10) { month = '0' + month };
 				dateTime = year + '-' + month + '-' + day;
 			}
 			if (showTime == 1) {
 				if (dateTime != '') { dateTime += ' ' };
-				var hour = date.getHours();
-				var minute = date.getMinutes();
-				var second = date.getSeconds();
+				let hour = date.getHours();
+				let minute = date.getMinutes();
+				let second = date.getSeconds();
 				if (hour < 10) { hour = '0' + hour; };
 				if (minute < 10) { minute = '0' + minute }
 				if (second < 10) { second = '0' + second }
