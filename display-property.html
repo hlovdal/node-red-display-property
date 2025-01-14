@@ -48,6 +48,6 @@
 	<p>1. Add <b>msg.topic</b> as the property in the configuration of the node, or<p>
 	<p>2. Pass a message with a property <code>msg.property</code> and the content <b>msg.topic</b> to the node.</p>
 	<p>Passing a <code>msg.property</code> message to the node will override the settings in the node-configuration</p>
-	<p>If you pass a msg.property with a content of a property that does not exist in the message, msg.payload will be displayed instead.</p>
+	<p>If you pass a msg.property with a undefined/null/empty value, the configured property will be displayed instead.</p>
 	<p>The intention of this node is to give you a better overview of the messages that pass your flows and support you debugging your flows by easily displaying the content of massage properties.</p>
 </script>
