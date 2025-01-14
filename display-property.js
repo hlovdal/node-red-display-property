@@ -66,7 +66,6 @@ module.exports = function (RED) {
 
 			// function start ---------------------------
 
-			let status = 'property does not exist';
 			if (property === '' || property === undefined || property === null) {
 				property = "msg.payload";
 			}
@@ -75,8 +74,12 @@ module.exports = function (RED) {
 					property = msg.property
 				}
 			}
-			if (msg.hasOwnProperty(property.slice(property.indexOf(".") + 1))) {
+
+			let status;
+			try {
 				status = RED.util.getMessageProperty(msg, property);
+			} catch (error) {
+				status = error?.message ?? error;
 			}
 
 			const dateTime = getDateAndTimeString(showDate, showTime);
