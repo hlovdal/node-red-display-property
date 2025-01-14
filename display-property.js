@@ -63,9 +63,6 @@ module.exports = function (RED) {
 		const showDate = config.showDate;
 		const showTime = config.showTime;
 		node.on("input", function (msg) {
-
-			// function start ---------------------------
-
 			if (property === '' || property === undefined || property === null) {
 				property = "msg.payload";
 			}
@@ -85,9 +82,6 @@ module.exports = function (RED) {
 			const dateTime = getDateAndTimeString(showDate, showTime);
 			node.status({ shape: "dot", fill: "grey", text: dateTime + JSON.stringify(status) })
 			node.send(msg);
-
-			// function end ---------------------------
-
 		});
 	}
 	RED.nodes.registerType("display property", DisplayPropertyNode);
