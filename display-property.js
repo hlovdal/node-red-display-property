@@ -50,7 +50,7 @@ module.exports = function (RED) {
 			node.status({ shape: "dot", fill: "grey", text: dateTime + JSON.stringify(status) })
 			node.send(msg);
 
-			// funiction end ---------------------------
+			// function end ---------------------------
 
 		});
 	}
