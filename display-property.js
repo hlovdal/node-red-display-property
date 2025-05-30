@@ -6,9 +6,13 @@ function getDateString(date) {
 	let day = date.getDate();
 	let month = date.getMonth() + 1; // month as a number 0-11, so add 1
 	let year = date.getFullYear();
-	if (day < 10) { day = '0' + day; };
-	if (month < 10) { month = '0' + month; };
-	return year + '-' + month + '-' + day;
+	if (day < 10) {
+		day = "0" + day;
+	}
+	if (month < 10) {
+		month = "0" + month;
+	}
+	return year + "-" + month + "-" + day;
 }
 
 /**
@@ -19,10 +23,16 @@ function getTimeString(date) {
 	let hour = date.getHours();
 	let minute = date.getMinutes();
 	let second = date.getSeconds();
-	if (hour < 10) { hour = '0' + hour; };
-	if (minute < 10) { minute = '0' + minute; }
-	if (second < 10) { second = '0' + second; }
-	return hour + ':' + minute + ':' + second;
+	if (hour < 10) {
+		hour = "0" + hour;
+	}
+	if (minute < 10) {
+		minute = "0" + minute;
+	}
+	if (second < 10) {
+		second = "0" + second;
+	}
+	return hour + ":" + minute + ":" + second;
 }
 
 /**
@@ -32,15 +42,17 @@ function getTimeString(date) {
  */
 function getDateAndTimeString(showDate, showTime) {
 	const date = new Date();
-	let dateTime = '';
+	let dateTime = "";
 	if (showDate) {
 		dateTime = getDateString(date);
 	}
 	if (showTime) {
-		const prefix = dateTime != '' ? ' ' : '';
+		const prefix = dateTime != "" ? " " : "";
 		dateTime += prefix + getTimeString(date);
 	}
-	if (dateTime != '') { dateTime += ': '; };
+	if (dateTime != "") {
+		dateTime += ": ";
+	}
 	return dateTime;
 }
 
@@ -63,24 +75,42 @@ module.exports = function (RED) {
 		const showDate = config.showDate;
 		const showTime = config.showTime;
 		node.on("input", function (msg) {
-			if (property === '' || property === undefined || property === null) {
+			if (
+				property === "" ||
+				property === undefined ||
+				property === null
+			) {
 				property = "msg.payload";
 			}
-			if (msg.hasOwnProperty('property')) {
-				if (msg.property !== '' || msg.property === undefined || msg.property === null) {
-					property = msg.property
+			if (msg.hasOwnProperty("property")) {
+				if (
+					msg.property !== "" ||
+					msg.property === undefined ||
+					msg.property === null
+				) {
+					property = msg.property;
 				}
 			}
 
 			let status;
 			try {
-				status = RED.util.getMessageProperty(msg, property);
+				status = RED.util.getMessageProperty(
+					msg,
+					property
+				);
 			} catch (error) {
 				status = error?.message ?? error;
 			}
 
-			const dateTime = getDateAndTimeString(showDate, showTime);
-			node.status({ shape: "dot", fill: "grey", text: dateTime + JSON.stringify(status) })
+			const dateTime = getDateAndTimeString(
+				showDate,
+				showTime
+			);
+			node.status({
+				shape: "dot",
+				fill: "grey",
+				text: dateTime + JSON.stringify(status),
+			});
 			node.send(msg);
 		});
 	}
