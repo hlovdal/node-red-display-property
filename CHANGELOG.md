@@ -11,7 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added support for displaying nested properties (e.g. `msg.data.attributes.brightness`).
+
 ### Changed
+
+- Normalized and formalized formatting.
+- Refactored the large body in `node.on("input", ...` and extracted smaller,
+  independent functions for date/time processing.
 
 ### Deprecated
 
