@@ -1,20 +1,20 @@
 {
-  "name": "node-red-contrib-display-property",
+  "name": "@hlovdal/node-red-display-property",
   "version": "1.0.0",
   "description": "A simple node that displays as its status the value of a message property that passes the node and optional the date/time when the message passed.",
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/PeterAustria/node-red-contrib-display-property"
+    "url": "git+https://github.com/hlovdal/node-red-display-property.git"
   },
   "main": "display-property.js",
   "author": {
-    "name": "Peter Hahn",
-    "email": "peter.hahn@zwettl.cc"
+    "name": "Håkon Løvdal",
+    "email": "kode@denkule.no"
   },
   "_npmUser": {
-    "name": "peteraustira",
-    "email": "peter.hahn@zwettl.cc"
+    "name": "hlovdal-owner",
+    "email": "npm@denkule.no"
   },
   "license": "MIT",
   "node-red": {
@@ -23,7 +23,7 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/PeterAustria/node-red-contrib-display-property/issues"
+    "url": "https://github.com/hlovdal/node-red-display-property/issues"
   },
   "keywords": [
     "node-red",
