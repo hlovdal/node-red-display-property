@@ -1,0 +1,28 @@
+# https://www.droidship.com/posts/gitattributes/
+# https://git-scm.com/docs/gitattributes
+# https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
+
+# When more than one pattern matches the path, a later line overrides an
+# earlier line. This overriding is done per attribute. The rules by
+# which the pattern matches paths are the same as in .gitignore files,
+# with a few exceptions:
+# * negative patterns are forbidden
+# * patterns that match a directory do not recursively match paths
+#   inside that directory (so using the trailing-slash path/ syntax is
+#   pointless in an attributes file; use path/** instead)
+
+# Default
+* text eol=lf
+
+# Enhance diff output
+*.md		text diff=markdown
+*.sh		text diff=bash
+*.css		text diff=css
+*.html		text diff=html
+
+# Inhibit diff output
+package-lock.json text -diff
+
+*.png binary
+*.ico binary
+
