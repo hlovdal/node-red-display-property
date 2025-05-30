@@ -52,3 +52,33 @@ If the message does not have a property, either configured in the node or passed
 ## Bugs and feature requests
 
 Please report any issues or enhancement requests at <a href="https://github.com/PeterAustria/node-red-contrib-display-property/issues">GitHub</a>.
+
+## Development
+
+You want to have a go at modifying the code? Awesome! For the time being there
+is no explicit build command, so just edit files directly.
+
+### Pre-commit
+
+To keep formatting of files in good shape, please install [pre-commit](https://pre-commit.com/)
+
+```bash
+python -m venv venv
+source venv/bin/activate         # non-windows machines
+source venv/Scripts/activate     # windows machines
+pip install --upgrade pip        # Optional
+pip install pre-commit
+```
+
+Verify that the tool is working:
+
+```bash
+pre-commit run --all-files
+```
+
+And then install pre-commit as a
+[git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks):
+
+```bash
+pre-commit install --allow-missing-config
+```
