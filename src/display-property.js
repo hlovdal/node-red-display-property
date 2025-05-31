@@ -1,4 +1,14 @@
 /**
+ * @param {number} value
+ * @returns {string}
+ */
+function zeroPad(value) {
+	let result = value < 10 ? "0" : "";
+	result += value.toString();
+	return result;
+}
+
+/**
  * @param {Date} date
  * @returns {string}
  */
@@ -6,13 +16,7 @@ function getDateString(date) {
 	let day = date.getDate();
 	let month = date.getMonth() + 1; // month as a number 0-11, so add 1
 	let year = date.getFullYear();
-	if (day < 10) {
-		day = "0" + day;
-	}
-	if (month < 10) {
-		month = "0" + month;
-	}
-	return year + "-" + month + "-" + day;
+	return year + "-" + zeroPad(month) + "-" + zeroPad(day);
 }
 
 /**
@@ -23,16 +27,7 @@ function getTimeString(date) {
 	let hour = date.getHours();
 	let minute = date.getMinutes();
 	let second = date.getSeconds();
-	if (hour < 10) {
-		hour = "0" + hour;
-	}
-	if (minute < 10) {
-		minute = "0" + minute;
-	}
-	if (second < 10) {
-		second = "0" + second;
-	}
-	return hour + ":" + minute + ":" + second;
+	return zeroPad(hour) + ":" + zeroPad(minute) + ":" + zeroPad(second);
 }
 
 /**
