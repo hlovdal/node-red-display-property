@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/hlovdal/node-red-display-property.git"
   },
-  "main": "display-property.js",
+  "main": "src/display-property.js",
   "author": {
     "name": "Håkon Løvdal",
     "email": "kode@denkule.no"
@@ -20,7 +20,7 @@
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "display-property": "display-property.js"
+      "display-property": "src/display-property.js"
     }
   },
   "engines": {
