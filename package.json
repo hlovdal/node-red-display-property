@@ -39,6 +39,7 @@
     "zzzzz-last-dependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
   },
   "devDependencies": {
+    "typescript": "^5.8.3",
     "zzzzz-last-devdependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
   }
 }
