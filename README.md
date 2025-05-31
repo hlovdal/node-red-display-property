@@ -1,10 +1,14 @@
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![npm](https://img.shields.io/npm/v/node-red-contrib-display-property.svg)](https://www.npmjs.com/package/node-red-contrib-display-property)
-[![downloads](https://img.shields.io/npm/dt/node-red-contrib-display-property.svg)](https://www.npmjs.com/package/node-red-contrib-display-property)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vivereSmartGroup/node-red-contrib-display-property/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/@hlovdal/node-red-display-property.svg)](https://www.npmjs.com/package/@hlovdal/node-red-display-property)
+[![downloads](https://img.shields.io/npm/dt/@hlovdal/node-red-display-property.svg)](https://www.npmjs.com/package/@hlovdal/node-red-display-property)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/hlovdal/node-red-display-property/blob/main/LICENSE)
 
-# node-red-contrib-display-property
+This is a fork of the
+[original repository](https://github.com/PeterAustria/node-red-contrib-display-property)
+which no longer seems to be maintained.
+
+# @hlovdal/node-red-display-property
 
 A simple node that displays as its status the value of a message property that passes the node.
 Optional it can be configured to also show the date and/or the time when the message passed.
@@ -15,16 +19,20 @@ The intention of this node is to give you a better overview of the messages that
 Install from your <b>Node-RED Manage Palette</b> or using npm:
 
 ```shell
-npm install node-red-contrib-display-property
+npm install @hlovdal/node-red-display-property
 ```
 
 ## Example
 
-![Node-red example flow screenshot](https://user-images.githubusercontent.com/80790340/114729085-f42ca880-9d3f-11eb-9779-6af19e969131.png)
+![Node-red example flow screenshot](./doc/img/example1.png)
 
 ```json
-[{"id":"d2a1b91.5e11c48","type":"display property","z":"f30078ab.f99208","name":"","property":"","x":500,"y":380,"wires":[[]]},{"id":"72e1bfe.11b244","type":"inject","z":"f30078ab.f99208","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"This is my payload","payloadType":"str","x":290,"y":380,"wires":[["d2a1b91.5e11c48"]]}]
+[{"id":"9a2098e26d45c777","type":"inject","z":"7fe7fa4eeb8bc36e","name":"JSON data","props":[{"p":"data","v":"{\"id\":\"light-12345\",\"type\":\"light\",\"timestamp\":1748648445,\"attributes\":{\"name\":\"Living room light\",\"brightness\":75}}","vt":"json"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":540,"y":500,"wires":[["3c18736cd0888ec6"]]},{"id":"3c18736cd0888ec6","type":"display property","z":"7fe7fa4eeb8bc36e","name":"msg.data.attributes.brightness","property":"msg.data.attributes.brightness","showDate":true,"showTime":true,"x":800,"y":500,"wires":[["22540bb1a20bde39"]]},{"id":"22540bb1a20bde39","type":"debug","z":"7fe7fa4eeb8bc36e","name":"debug 1","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1060,"y":500,"wires":[]}]
 ```
+
+It will gracefully handle attempting to display properties that do not exist:
+
+![Non-existing property example](./doc/img/example2.png)
 
 ## Help
 
@@ -51,7 +59,8 @@ If the message does not have a property, either configured in the node or passed
 
 ## Bugs and feature requests
 
-Please report any issues or enhancement requests at <a href="https://github.com/PeterAustria/node-red-contrib-display-property/issues">GitHub</a>.
+Please report any issues or enhancement requests at
+[GitHub](https://github.com/hlovdal/node-red-display-property/issues).
 
 ## Development
 
