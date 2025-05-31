@@ -2,11 +2,15 @@
   "name": "@hlovdal/node-red-display-property",
   "version": "1.0.3",
   "description": "A simple node that displays as its status the value of a message property that passes the node and optional the date/time when the message passed.",
+  "scripts": {
+    "prebuild": "del-cli dist && cpy 'src/*.html' dist",
+    "build": "tsc && npm pack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hlovdal/node-red-display-property.git"
   },
-  "main": "src/display-property.js",
+  "main": "dist/display-property.js",
   "author": {
     "name": "Håkon Løvdal",
     "email": "kode@denkule.no"
@@ -19,7 +23,7 @@
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "display-property": "src/display-property.js"
+      "display-property": "dist/display-property.js"
     }
   },
   "engines": {
@@ -34,6 +38,9 @@
     "debug",
     "display",
     "status"
+  ],
+  "bundleDependencies": [
+    "node-red-contrib-typescript-node"
   ],
   "dependencies": {
     "node-red-contrib-typescript-node": "^0.1.0",

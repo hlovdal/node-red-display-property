@@ -1,3 +1,4 @@
 workspace.code-workspace
 venv/
 node_modules/
+dist/
