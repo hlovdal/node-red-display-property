@@ -8,7 +8,7 @@ This is a fork of the
 [original repository](https://github.com/PeterAustria/node-red-contrib-display-property)
 which no longer seems to be maintained.
 
-# @hlovdal/node-red-display-property
+# [@hlovdal/node-red-display-property](https://flows.nodered.org/node/@hlovdal/node-red-display-property)
 
 A simple node that displays as its status the value of a message property that passes the node.
 Optional it can be configured to also show the date and/or the time when the message passed.
