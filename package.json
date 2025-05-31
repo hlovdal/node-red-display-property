@@ -36,6 +36,7 @@
     "status"
   ],
   "dependencies": {
+    "node-red-contrib-typescript-node": "^0.1.0",
     "zzzzz-last-dependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
   },
   "devDependencies": {
