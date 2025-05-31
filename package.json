@@ -2,9 +2,6 @@
   "name": "@hlovdal/node-red-display-property",
   "version": "1.0.3",
   "description": "A simple node that displays as its status the value of a message property that passes the node and optional the date/time when the message passed.",
-  "dependencies": {
-    "zzzzz-last-dependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hlovdal/node-red-display-property.git"
@@ -38,6 +35,9 @@
     "display",
     "status"
   ],
+  "dependencies": {
+    "zzzzz-last-dependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
+  },
   "devDependencies": {
     "zzzzz-last-devdependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
   }
