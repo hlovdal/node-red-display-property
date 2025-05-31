@@ -24,7 +24,7 @@ npm install @hlovdal/node-red-display-property
 
 ## Example
 
-![Node-red example flow screenshot](./doc/img/example1.png)
+![Node-red example flow screenshot](https://github.com/hlovdal/node-red-display-property/blob/4a4e487997028c0d852c3ed32bb8afc4f4054679/doc/img/example1.png?raw=true)
 
 ```json
 [{"id":"9a2098e26d45c777","type":"inject","z":"7fe7fa4eeb8bc36e","name":"JSON data","props":[{"p":"data","v":"{\"id\":\"light-12345\",\"type\":\"light\",\"timestamp\":1748648445,\"attributes\":{\"name\":\"Living room light\",\"brightness\":75}}","vt":"json"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":540,"y":500,"wires":[["3c18736cd0888ec6"]]},{"id":"3c18736cd0888ec6","type":"display property","z":"7fe7fa4eeb8bc36e","name":"msg.data.attributes.brightness","property":"msg.data.attributes.brightness","showDate":true,"showTime":true,"x":800,"y":500,"wires":[["22540bb1a20bde39"]]},{"id":"22540bb1a20bde39","type":"debug","z":"7fe7fa4eeb8bc36e","name":"debug 1","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1060,"y":500,"wires":[]}]
@@ -32,7 +32,7 @@ npm install @hlovdal/node-red-display-property
 
 It will gracefully handle attempting to display properties that do not exist:
 
-![Non-existing property example](./doc/img/example2.png)
+![Non-existing property example](https://github.com/hlovdal/node-red-display-property/blob/e5b0330fc3e6d43c0ed68745faa2a75420132d8f/doc/img/example2.png?raw=true)
 
 ## Help
 

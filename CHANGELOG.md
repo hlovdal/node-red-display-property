@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Changed readme image links to full domain links so they will show
+  up properly at <https://flows.nodered.org/node/@hlovdal/node-red-display-property>.
+
 ### Deprecated
 
 ### Removed
