@@ -1,6 +1,6 @@
 {
   "name": "@hlovdal/node-red-display-property",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple node that displays as its status the value of a message property that passes the node and optional the date/time when the message passed.",
   "dependencies": {},
   "repository": {
