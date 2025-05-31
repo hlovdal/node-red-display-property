@@ -30,6 +30,10 @@ npm install @hlovdal/node-red-display-property
 [{"id":"9a2098e26d45c777","type":"inject","z":"7fe7fa4eeb8bc36e","name":"JSON data","props":[{"p":"data","v":"{\"id\":\"light-12345\",\"type\":\"light\",\"timestamp\":1748648445,\"attributes\":{\"name\":\"Living room light\",\"brightness\":75}}","vt":"json"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":540,"y":500,"wires":[["3c18736cd0888ec6"]]},{"id":"3c18736cd0888ec6","type":"display property","z":"7fe7fa4eeb8bc36e","name":"msg.data.attributes.brightness","property":"msg.data.attributes.brightness","showDate":true,"showTime":true,"x":800,"y":500,"wires":[["22540bb1a20bde39"]]},{"id":"22540bb1a20bde39","type":"debug","z":"7fe7fa4eeb8bc36e","name":"debug 1","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1060,"y":500,"wires":[]}]
 ```
 
+It will gracefully handle attempting to display properties that do not exist:
+
+![Non-existing property example](./doc/img/example2.png)
+
 ## Help
 
 This documentation is also available in the help section of the node.
