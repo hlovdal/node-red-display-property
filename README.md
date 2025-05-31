@@ -24,10 +24,10 @@ npm install @hlovdal/node-red-display-property
 
 ## Example
 
-![Node-red example flow screenshot](https://user-images.githubusercontent.com/80790340/114729085-f42ca880-9d3f-11eb-9779-6af19e969131.png)
+![Node-red example flow screenshot](./doc/img/example1.png)
 
 ```json
-[{"id":"d2a1b91.5e11c48","type":"display property","z":"f30078ab.f99208","name":"","property":"","x":500,"y":380,"wires":[[]]},{"id":"72e1bfe.11b244","type":"inject","z":"f30078ab.f99208","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"This is my payload","payloadType":"str","x":290,"y":380,"wires":[["d2a1b91.5e11c48"]]}]
+[{"id":"9a2098e26d45c777","type":"inject","z":"7fe7fa4eeb8bc36e","name":"JSON data","props":[{"p":"data","v":"{\"id\":\"light-12345\",\"type\":\"light\",\"timestamp\":1748648445,\"attributes\":{\"name\":\"Living room light\",\"brightness\":75}}","vt":"json"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":540,"y":500,"wires":[["3c18736cd0888ec6"]]},{"id":"3c18736cd0888ec6","type":"display property","z":"7fe7fa4eeb8bc36e","name":"msg.data.attributes.brightness","property":"msg.data.attributes.brightness","showDate":true,"showTime":true,"x":800,"y":500,"wires":[["22540bb1a20bde39"]]},{"id":"22540bb1a20bde39","type":"debug","z":"7fe7fa4eeb8bc36e","name":"debug 1","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1060,"y":500,"wires":[]}]
 ```
 
 ## Help
