@@ -1,0 +1,5 @@
+.editorconfig
+.gitattributes
+.markdownlint.json
+.pre-commit-config.yaml
+.vscode/settings.json
