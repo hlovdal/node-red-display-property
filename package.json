@@ -22,6 +22,9 @@
       "display-property": "display-property.js"
     }
   },
+  "engines": {
+    "node": "*"
+  },
   "bugs": {
     "url": "https://github.com/hlovdal/node-red-display-property/issues"
   },
