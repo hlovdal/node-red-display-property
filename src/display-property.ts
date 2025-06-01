@@ -16,16 +16,16 @@ function zeroPad(value: number) {
 }
 
 function getDateString(date: Date): string {
-	let day = date.getDate();
-	let month = date.getMonth() + 1; // month as a number 0-11, so add 1
+	const day = date.getDate();
+	const month = date.getMonth() + 1; // month as a number 0-11, so add 1
 	const year = date.getFullYear();
 	return year + "-" + zeroPad(month) + "-" + zeroPad(day);
 }
 
 function getTimeString(date: Date): string {
-	let hour = date.getHours();
-	let minute = date.getMinutes();
-	let second = date.getSeconds();
+	const hour = date.getHours();
+	const minute = date.getMinutes();
+	const second = date.getSeconds();
 	return zeroPad(hour) + ":" + zeroPad(minute) + ":" + zeroPad(second);
 }
 
@@ -54,6 +54,7 @@ module.exports = function (RED: NodeRedApp) {
 			let property = config.property;
 			const showDate = config.showDate;
 			const showTime = config.showTime;
+			// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 			this.on("input", (msg: any) => {
 				if (
 					property === "" ||
@@ -62,7 +63,7 @@ module.exports = function (RED: NodeRedApp) {
 				) {
 					property = "msg.payload";
 				}
-				if (msg.hasOwnProperty("property")) {
+				if (Object.prototype.hasOwnProperty.call(msg, "property")) {
 					if (
 						msg.property !== "" ||
 						msg.property === undefined ||
@@ -78,8 +79,8 @@ module.exports = function (RED: NodeRedApp) {
 						msg,
 						property!
 					);
-				} catch (error: any) {
-					status = error?.message ?? error;
+				} catch (error: unknown) {
+					status = error instanceof Error ? error.message : error;
 				}
 
 				const dateTime = getDateAndTimeString(
