@@ -21,7 +21,7 @@ function isNonEmptyString(s: unknown): s is string {
 	return s.length > 0;
 }
 
-function getStatus(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string) {
+function getStatus(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string): string {
 	if (property === "" || property === undefined || property === null) {
 		property = "msg.payload";
 	}
@@ -32,11 +32,12 @@ function getStatus(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string) {
 		property = msg.property;
 	}
 
-	let status;
+	let status: string;
 	try {
-		status = RED.util.getMessageProperty(msg, property!);
+		const prop = RED.util.getMessageProperty(msg, property);
+		status = JSON.stringify(prop);
 	} catch (error: unknown) {
-		status = error instanceof Error ? error.message : error;
+		status = error instanceof Error ? error.message : JSON.stringify(error);
 	}
 	return status;
 }
@@ -59,7 +60,7 @@ module.exports = function (RED: NodeRedApp) {
 				this.status({
 					shape: "dot",
 					fill: "grey",
-					text: dateTime + JSON.stringify(status),
+					text: dateTime + status,
 				});
 				this.send(msg);
 			});
