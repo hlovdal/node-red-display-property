@@ -1,7 +1,10 @@
 import { NodeMessageInFlow, NodeRedApp } from "node-red";
 import { Node } from "node-red-contrib-typescript-node";
 
-import { getDateAndTimeString } from "./utils";
+import {
+	getDateAndTimeString,
+	isNonEmptyString,
+} from "./utils";
 
 // NB! Keep this in sync with the "defaults" object in the call to RED.nodes.registerType in display-property.html.
 interface NodeProperties {
@@ -9,16 +12,6 @@ interface NodeProperties {
 	property?: string;
 	showDate: boolean;
 	showTime: boolean;
-}
-
-function isNonEmptyString(s: unknown): s is string {
-	if (s === null || s === undefined) {
-		return false;
-	}
-	if (typeof s !== "string") {
-		return false;
-	}
-	return s.length > 0;
 }
 
 function getValue(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string): string {

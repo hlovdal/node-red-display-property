@@ -34,3 +34,13 @@ export function getDateAndTimeString(showDate: boolean, showTime: boolean): stri
 	}
 	return dateTime;
 }
+
+export function isNonEmptyString(s: unknown): s is string {
+	if (s === null || s === undefined) {
+		return false;
+	}
+	if (typeof s !== "string") {
+		return false;
+	}
+	return s.length > 0;
+}
