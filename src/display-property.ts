@@ -1,4 +1,4 @@
-import { NodeRedApp } from "node-red";
+import { NodeMessageInFlow, NodeRedApp } from "node-red";
 import { Node } from "node-red-contrib-typescript-node";
 
 import { getDateAndTimeString } from "./utils";
@@ -11,19 +11,25 @@ interface NodeProperties {
 	showTime: boolean;
 }
 
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
-function getStatus(RED: NodeRedApp, msg: any, property?: string) {
-	if (property === "" ||
-		property === undefined ||
-		property === null) {
+function isNonEmptyString(s: unknown): s is string {
+	if (s === null || s === undefined) {
+		return false;
+	}
+	if (typeof s !== "string") {
+		return false;
+	}
+	return s.length > 0;
+}
+
+function getStatus(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string) {
+	if (property === "" || property === undefined || property === null) {
 		property = "msg.payload";
 	}
 	if (Object.prototype.hasOwnProperty.call(msg, "property")) {
-		if (msg.property !== "" ||
-			msg.property === undefined ||
-			msg.property === null) {
-			property = msg.property;
+		if (!isNonEmptyString(msg.property)) {
+			return `msg.property is not a non-empty string: ${JSON.stringify(msg.property)}`;
 		}
+		property = msg.property;
 	}
 
 	let status;
@@ -44,8 +50,7 @@ module.exports = function (RED: NodeRedApp) {
 			const property = config.property;
 			const showDate = config.showDate;
 			const showTime = config.showTime;
-			// eslint-disable-next-line  @typescript-eslint/no-explicit-any
-			this.on("input", (msg: any) => {
+			this.on("input", (msg) => {
 				const status = getStatus(RED, msg, property);
 				const dateTime = getDateAndTimeString(
 					showDate,
