@@ -11,44 +11,42 @@ interface NodeProperties {
 	showTime: boolean;
 }
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+function getStatus(RED: NodeRedApp, msg: any, property?: string) {
+	if (property === "" ||
+		property === undefined ||
+		property === null) {
+		property = "msg.payload";
+	}
+	if (Object.prototype.hasOwnProperty.call(msg, "property")) {
+		if (msg.property !== "" ||
+			msg.property === undefined ||
+			msg.property === null) {
+			property = msg.property;
+		}
+	}
+
+	let status;
+	try {
+		status = RED.util.getMessageProperty(msg, property!);
+	} catch (error: unknown) {
+		status = error instanceof Error ? error.message : error;
+	}
+	return status;
+}
+
 module.exports = function (RED: NodeRedApp) {
 	class DisplayPropertyNode extends Node {
 		constructor(config: NodeProperties) {
 			super(RED);
 			this.createNode(config);
 
-			let property = config.property;
+			const property = config.property;
 			const showDate = config.showDate;
 			const showTime = config.showTime;
 			// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 			this.on("input", (msg: any) => {
-				if (
-					property === "" ||
-					property === undefined ||
-					property === null
-				) {
-					property = "msg.payload";
-				}
-				if (Object.prototype.hasOwnProperty.call(msg, "property")) {
-					if (
-						msg.property !== "" ||
-						msg.property === undefined ||
-						msg.property === null
-					) {
-						property = msg.property;
-					}
-				}
-
-				let status;
-				try {
-					status = RED.util.getMessageProperty(
-						msg,
-						property!
-					);
-				} catch (error: unknown) {
-					status = error instanceof Error ? error.message : error;
-				}
-
+				const status = getStatus(RED, msg, property);
 				const dateTime = getDateAndTimeString(
 					showDate,
 					showTime,
