@@ -64,8 +64,15 @@ Please report any issues or enhancement requests at
 
 ## Development
 
-You want to have a go at modifying the code? Awesome! For the time being there
-is no explicit build command, so just edit files directly.
+You want to have a go at modifying the code? Awesome! The project is now
+converted to use [TypeScript](https://www.typescriptlang.org/) which brings
+along all the benefits like type safety, editor auto complete support,
+refactoring tooling, etc.
+
+Run `npm install` once after cloning the repository (and after pulling/merging
+upstream updates).
+
+Run `npm run build` to generate the javascript file that will be deployed.
 
 ### Pre-commit
 

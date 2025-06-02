@@ -3,3 +3,5 @@
 .markdownlint.json
 .pre-commit-config.yaml
 .vscode/settings.json
+tsconfig.json
+src/*
