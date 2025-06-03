@@ -12,3 +12,4 @@ git-test-init:
 	git test add -t lint         "$(TOPDIR)/bin/wrapper.sh bin/run-test-lint.sh "
 	git test add -t pre-commit   "$(TOPDIR)/bin/wrapper.sh bin/run-test-pre-commit.sh "
 	git test add -t shellcheck   "$(TOPDIR)/bin/wrapper.sh bin/run-test-shellcheck.sh "
+	git test add -t test         "$(TOPDIR)/bin/wrapper.sh bin/run-test-test.sh "
