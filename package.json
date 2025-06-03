@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint 'src/**/*.ts'",
     "prebuild": "del-cli dist && cpy 'src/*.html' dist",
-    "build": "tsc && npm pack"
+    "build": "tsc && npm pack",
+    "zzzzz-last": ""
   },
   "repository": {
     "type": "git",
