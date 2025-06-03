@@ -74,6 +74,8 @@ upstream updates).
 
 Run `npm run build` to generate the javascript file that will be deployed.
 
+Run `npm run eslint` to run lint check of the code.
+
 ### Pre-commit
 
 To keep formatting of files in good shape, please install [pre-commit](https://pre-commit.com/)

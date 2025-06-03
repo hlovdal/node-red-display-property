@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "A simple node that displays as its status the value of a message property that passes the node and optional the date/time when the message passed.",
   "scripts": {
+    "lint": "eslint 'src/**/*.ts'",
     "prebuild": "del-cli dist && cpy 'src/*.html' dist",
     "build": "tsc && npm pack"
   },
