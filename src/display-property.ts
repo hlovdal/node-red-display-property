@@ -46,9 +46,11 @@ module.exports = function (RED: NodeRedApp) {
 			const showTime = config.showTime;
 			this.on("input", (msg) => {
 				const value = getValue(RED, msg, property);
+				const date = new Date();
 				const dateTime = getDateAndTimeString(
 					showDate,
 					showTime,
+					date,
 				);
 				this.status({
 					shape: "dot",
