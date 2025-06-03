@@ -19,8 +19,7 @@ function getTimeString(date: Date): string {
 	return zeroPad(hour) + ":" + zeroPad(minute) + ":" + zeroPad(second);
 }
 
-export function getDateAndTimeString(showDate: boolean, showTime: boolean): string {
-	const date = new Date();
+export function getDateAndTimeString(showDate: boolean, showTime: boolean, date: Date): string {
 	let dateTime = "";
 	if (showDate) {
 		dateTime = getDateString(date);
