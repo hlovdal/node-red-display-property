@@ -7,6 +7,7 @@ const config: Config = {
 	testEnvironment: "node",
 	transform: {
 		...tsJestTransformCfg,
+		"^.+\\.js$": "ts-jest",
 	},
 };
 module.exports = config;

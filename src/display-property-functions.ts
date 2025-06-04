@@ -5,7 +5,7 @@ import {
 	isNonEmptyString,
 } from "./utils";
 
-export function getValue(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string): string {
+export function getValue(RED: NodeRedApp, msg: NodeMessageInFlow, property: string | undefined | null): string {
 	if (property === "" || property === undefined || property === null) {
 		property = "msg.payload";
 	}
