@@ -1,6 +1,10 @@
 import { describe, expect, test } from "@jest/globals";
 
-import { getDateAndTimeString, isNonEmptyString } from "./utils";
+import {
+	getDateAndTimeString,
+	getStringValue,
+	isNonEmptyString,
+} from "./utils";
 
 describe("utils", () => {
 	test("getDateAndTimeString", () => {
@@ -44,5 +48,29 @@ describe("utils", () => {
 			// Assert
 			expect(result).toEqual(d.result);
 		});
+	});
+
+	test("getStringValue", () => {
+		// Arrange
+		const testData = [
+			{ input: undefined, output: "undefined" },
+			{ input: null, output: "null" },
+			{ input: 0, output: "0" },
+			{ input: 123, output: "123" },
+			{ input: "", output: "\"\"" },
+			{ input: "abc", output: "\"abc\"" },
+			{ input: [1, 2, 3], output: "[1,2,3]" },
+			{ input: ["a", "b", "c"], output: "[\"a\",\"b\",\"c\"]" },
+			{ input: { a: "A", n: 1 }, output: "{\"a\":\"A\",\"n\":1}" },
+		];
+
+		testData.forEach(d => {
+			// Act
+			const value = getStringValue(d.input);
+
+			// Assert
+			expect(value).toEqual(d.output);
+		});
+
 	});
 });

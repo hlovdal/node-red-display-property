@@ -1,6 +1,9 @@
 import { NodeMessageInFlow, NodeRedApp } from "node-red";
 
-import { isNonEmptyString } from "./utils";
+import {
+	getStringValue,
+	isNonEmptyString,
+} from "./utils";
 
 export function getValue(RED: NodeRedApp, msg: NodeMessageInFlow, property?: string): string {
 	if (property === "" || property === undefined || property === null) {
@@ -8,7 +11,7 @@ export function getValue(RED: NodeRedApp, msg: NodeMessageInFlow, property?: str
 	}
 	if (Object.prototype.hasOwnProperty.call(msg, "property")) {
 		if (!isNonEmptyString(msg.property)) {
-			return `msg.property is not a non-empty string: ${JSON.stringify(msg.property)}`;
+			return `msg.property is not a non-empty string: ${getStringValue(msg.property)}`;
 		}
 		property = msg.property;
 	}
@@ -16,9 +19,9 @@ export function getValue(RED: NodeRedApp, msg: NodeMessageInFlow, property?: str
 	let value: string;
 	try {
 		const prop = RED.util.getMessageProperty(msg, property);
-		value = JSON.stringify(prop);
+		value = getStringValue(prop);
 	} catch (error: unknown) {
-		value = error instanceof Error ? error.message : JSON.stringify(error);
+		value = error instanceof Error ? error.message : getStringValue(error);
 	}
 	return value;
 }
