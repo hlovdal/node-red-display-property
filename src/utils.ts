@@ -43,3 +43,7 @@ export function isNonEmptyString(s: unknown): s is string {
 	}
 	return s.length > 0;
 }
+
+export function getStringValue(value: unknown): string {
+	return value === undefined || value === null ? `${value}` : JSON.stringify(value);
+}

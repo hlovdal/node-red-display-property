@@ -3,5 +3,12 @@
 .markdownlint.json
 .pre-commit-config.yaml
 .vscode/settings.json
+
+eslint.config.mjs
+jest.config.ts
 tsconfig.json
+
+bin/*
+dist/*.spec.js
+dist/node-red-utils.mjs
 src/*
