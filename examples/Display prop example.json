@@ -1,0 +1,221 @@
+[
+    {
+        "id": "23821ba373a601ab",
+        "type": "tab",
+        "label": "Display prop examples",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3c18736cd0888ec6",
+        "type": "display property",
+        "z": "23821ba373a601ab",
+        "name": "msg.data.attributes.brightness",
+        "property": "msg.data.attributes.brightness",
+        "showDate": true,
+        "showTime": true,
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "22540bb1a20bde39"
+            ]
+        ]
+    },
+    {
+        "id": "9a2098e26d45c777",
+        "type": "inject",
+        "z": "23821ba373a601ab",
+        "name": "JSON data",
+        "props": [
+            {
+                "p": "data",
+                "v": "{\"id\":\"light-12345\",\"type\":\"light\",\"timestamp\":1748648445,\"attributes\":{\"name\":\"Living room light\",\"brightness\":75}}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "3c18736cd0888ec6"
+            ]
+        ]
+    },
+    {
+        "id": "22540bb1a20bde39",
+        "type": "debug",
+        "z": "23821ba373a601ab",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "23d5de9f3f853628",
+        "type": "inject",
+        "z": "23821ba373a601ab",
+        "name": "JSON data",
+        "props": [
+            {
+                "p": "data",
+                "v": "{\"id\":\"light-12345\",\"type\":\"light\",\"timestamp\":1748648445,\"attributes\":{\"name\":\"Living room light\",\"brightness\":75}}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "e2d000797e13eca5"
+            ]
+        ]
+    },
+    {
+        "id": "0b1c18ef5006d0ed",
+        "type": "display property",
+        "z": "23821ba373a601ab",
+        "name": "msg.payload",
+        "property": "msg.payload",
+        "showDate": true,
+        "showTime": true,
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "c7a7630d3eecba51"
+            ]
+        ]
+    },
+    {
+        "id": "1d3ec83175a3ee9d",
+        "type": "inject",
+        "z": "23821ba373a601ab",
+        "name": "null",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "null",
+        "payloadType": "jsonata",
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "0b1c18ef5006d0ed"
+            ]
+        ]
+    },
+    {
+        "id": "3c9711f8088080d2",
+        "type": "display property",
+        "z": "23821ba373a601ab",
+        "name": "msg.payload",
+        "property": "msg.payload",
+        "showDate": true,
+        "showTime": true,
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "4f206c2582be9da1"
+            ]
+        ]
+    },
+    {
+        "id": "59b2c35d02c845cf",
+        "type": "inject",
+        "z": "23821ba373a601ab",
+        "name": "undefined",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "undefined",
+        "payloadType": "jsonata",
+        "x": 240,
+        "y": 420,
+        "wires": [
+            [
+                "3c9711f8088080d2"
+            ]
+        ]
+    },
+    {
+        "id": "c7a7630d3eecba51",
+        "type": "debug",
+        "z": "23821ba373a601ab",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "4f206c2582be9da1",
+        "type": "debug",
+        "z": "23821ba373a601ab",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e2d000797e13eca5",
+        "type": "display property",
+        "z": "23821ba373a601ab",
+        "name": "msg.data.non.existing.propery",
+        "property": "msg.data.non.existing.propery",
+        "showDate": true,
+        "showTime": true,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    }
+]
