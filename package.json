@@ -47,6 +47,9 @@
     "node-red-contrib-typescript-node"
   ],
   "overrides": {
+    "ts-node": {
+      "diff": "^8.0.3"
+    },
     "@node-red/registry": {
       "tar": "^7.5.3"
     },
