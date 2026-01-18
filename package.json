@@ -47,6 +47,9 @@
     "node-red-contrib-typescript-node"
   ],
   "overrides": {
+    "@node-red/registry": {
+      "tar": "^7.5.3"
+    },
     "@node-red/editor-api": {
       "body-parser": "1.20.4"
     },
